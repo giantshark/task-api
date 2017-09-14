@@ -25,6 +25,7 @@ Route::group(['namespace' => 'V1', 'prefix' => 'v1'], function() {
   });
 
   Route::group(['namespace' => 'Tasks\Controllers', 'prefix' => 'tasks', 'as' => 'tasks.'], function() {
+    Route::put('/{id}/statuses/{status}', ['as' => 'update_status', 'uses' => 'TaskController@status' ]);
     Route::get('/{id}', ['as' => 'show', 'uses' => 'TaskController@show' ]);
     Route::get('/', ['as' => 'index', 'uses' => 'TaskController@index' ]);
     Route::post('/', ['as' => 'store', 'uses' => 'TaskController@store' ]);

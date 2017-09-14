@@ -136,6 +136,30 @@ class TaskController extends Controller
   }
 
   /**
+   * change task status
+   * @return [type] [description]
+   */
+  public function status($id, $status)
+  {
+      $rules = [
+        // task id is required
+        'id' => 'required|integer',
+        // status is required and must be pending or done
+        'status' => 'required|in:pending,done'
+      ];
+      // validate params
+      $validator = Validator::make(['id' => $id, 'status' => $status], $rules);
+      // if invalid params return message with 400 status code
+      if (!$validator->passes()) return $this->respond($validator->errors()->all(), 400, []);
+      $task = Task::find($id);
+      if ($task) {
+          $task->update(['status' => $status]);
+          return $this->respond([], 200, [$task]);
+      }
+      return $this->respond(['task not found'], 400, []);
+  }
+
+  /**
    * Validate api params, this method should be move to another class
    * if success return params, if not return empty array
    * @return params in array include valid column, offset, limit
