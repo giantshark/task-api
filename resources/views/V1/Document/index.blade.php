@@ -71,9 +71,9 @@
                           </tr>
                         </tbody>
                         </table>
-                        <h3 id="api-request-address">Request Address</h3>
-                        <p>Returns current user's address, user can deposit using this address(address can be changed do not use as permanent address). response including:</p>
-                        <p>GET: <code>http://localhost/api/accounts/{user_id}/addresses</code></p>
+                        <!-- LIST TASK -->
+                        <h3 id="api-list-tasks">List tasks</h3>
+                        <p>GET: <code>http://localhost/api/v1/tasks?limit=limit&offset=offset&column={column1,column2}</code></p>
 
                         <table class="table table-bordered table-striped dyntable">
                         <thead>
@@ -85,163 +85,26 @@
                         </thead>
                         <tbody>
                         	<tr>
-                            	<td><span class="badge badge-important">Required</span></td>
-                            	<td><code>user_id</code></td>
-                                <td>User identify key</td>
-                                <td><span class="badge">int</span> or <span class="badge">string</span></td>
-                            </tr>
-
-                        </tbody>
-                        </table>
-
-                        <h5>Returned JSON values:</h5>
-                        <table class="table table-bordered table-striped dyntable">
-                        <thead>
-                        <tr>
-                            <th>Field</th>
-                            <th>Description</th>
-                            <th>Possible Values</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        	<tr>
-                            	<td><code>address</code></td>
-                                <td>user's address</td>
-                                <td><span class="badge badge-info">string</span></td>
-                            </tr>
-                        	<tr>
-                            	<td><code>user_id</code></td>
-                                <td>account id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr>
-                        </tbody>
-                        </table>
-                        <h3 id="api-2">Transaction History</h3>
-<p>GET: <code>http://localhost/api/accounts/{user_id}/transactions?status={status}&amp;is_test={is_test_mode}</code></p><p>Returns user transactions history. response including:</p>
-
-<table class="table table-bordered table-striped dyntable">
-                        <thead>
-                        <tr>
-                            <th colspan="2">Field</th>
-                            <th>Description</th>
-                            <th>Possible Values</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        	<tr>
-                            	<td><span class="badge badge-important">Required</span></td>
-                            	<td><code>user_id</code></td>
-                                <td>User identify key</td>
-                                <td><span class="badge">int</span> or <span class="badge">string</span></td>
-                            </tr>
-
-                        <tr>
                             	<td><span class="badge badge-important">Optional</span></td>
-                            	<td><code>status</code></td>
-                                <td>transaction status
-<ul>
-
-                            <li><code>unconfirmed</code>- filter only unconfirmed transaction</li>
-
-
-                        <li><code>confirmed</code>- filter only confirmed transaction</li></ul>
-</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><span class="badge badge-important">Optional</span></td>
-                            	<td><code>is_test</code></td>
-                                <td>testmode
-<ul>
-                        	<li><code>1</code>- include transaction in testmode</li>
-
-
-
-                        </ul>
-</td>
-                                <td><span class="badge">int</span></td>
-                            </tr></tbody>
-                        </table>
-
-
-
-                        <h5>Returned JSON values:</h5><table class="table table-bordered table-striped dyntable">
-                        <thead>
-                        <tr>
-                            <th>Field</th>
-                            <th>Description</th>
-                            <th>Possible Values</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        	<tr>
-                            	<td><code>address</code></td>
-                                <td>user's address</td>
-                                <td><span class="badge badge-info">string</span></td>
-                            </tr>
-                        	<tr>
-                            	<td><code>confirmation</code></td>
-                                <td>bitcoin confirmation</td>
-                                <td><span class="badge">int</span></td>
-                            </tr>
-                        <tr>
-                            	<td><code>date</code></td>
-                                <td>confirmation date</td>
-                                <td><span class="badge">datetime</span></td>
-                            </tr><tr>
-                            	<td><code>tx_hash</code></td>
-                                <td>transaction id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>value</code></td>
-                                <td>bitcoin value</td>
-                                <td><span class="badge">numeric</span></td>
-                            </tr><tr>
-                            	<td><code>usd</code></td>
-                                <td>value in usd</td>
-                                <td><span class="badge">numeric</span></td>
-                            </tr><tr>
-                            	<td><code>user_id</code></td>
-                                <td>account id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>is_test</code></td>
-                                <td>
-test mode
-<ul>
-
-                            <li><code>0</code>- real bitcoin transaction</li>
-
-
-                        <li><code>1</code>- test mode transaction</li></ul>
-</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>updated_at</code></td>
-                                <td>last date that transaction be comfirmed</td>
-                                <td><span class="badge">string</span></td>
-                            </tr></tbody>
-                        </table>
-<h3 id="api-3">Transaction Detail</h3>
-                        <p>GET: <code>http://localhost/api/transactions/{tx_hash}</code></p>
-                        <p>Returns transaction detail. response including:</p>
-                        <table class="table table-bordered table-striped dyntable">
-                        <thead>
-                        <tr>
-                            <th colspan="2">Field</th>
-                            <th>Description</th>
-                            <th>Possible Values</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        	<tr>
-                            	<td><span class="badge badge-success">Required</span></td>
-                            	<td><code>tx_hash</code></td>
-                                <td>Transaction Id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr>
-
+                            	<td><code>limit</code></td>
+                              <td>limit of resources</td>
+                              <td><span class="badge">int</span></td>
+                          </tr>
+                          <tr>
+                              <td><span class="badge badge-important">Optional</span></td>
+                              <td><code>offset</code></td>
+                              <td>skip next N resources</td>
+                              <td><span class="badge">int</span></td>
+                          </tr>
+                          <tr>
+                              <td><span class="badge badge-important">Optional</span></td>
+                              <td><code>column</code></td>
+                              <td>column of resources, {id, subject, content}</td>
+                              <td><span class="badge">string</span></td>
+                          </tr>
                         </tbody>
                         </table>
+
                         <h5>Returned JSON values:</h5>
                         <table class="table table-bordered table-striped dyntable">
                         <thead>
@@ -253,111 +116,37 @@ test mode
                         </thead>
                         <tbody>
                         	<tr>
-                            	<td><code>address</code></td>
-                                <td>user's address</td>
+                            	<td><code>subject</code></td>
+                                <td>task subject</td>
                                 <td><span class="badge badge-info">string</span></td>
                             </tr>
                         	<tr>
-                            	<td><code>confirmation</code></td>
-                                <td>bitcoin confirmation</td>
-                                <td><span class="badge">int</span></td>
+                            	<td><code>content</code></td>
+                              <td>task content of detail</td>
+                              <td><span class="badge">string</span></td>
                             </tr>
-                        <tr>
-                            	<td><code>date</code></td>
-                                <td>confirmation date</td>
-                                <td><span class="badge">datetime</span></td>
-                            </tr><tr>
-                            	<td><code>tx_hash</code></td>
-                                <td>transaction id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>value</code></td>
-                                <td>bitcoin value</td>
-                                <td><span class="badge">numeric</span></td>
-                            </tr><tr>
-                            	<td><code>usd</code></td>
-                                <td>value in usd</td>
-                                <td><span class="badge">numeric</span></td>
-                            </tr><tr>
-                            	<td><code>user_id</code></td>
-                                <td>account id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>is_test</code></td>
-                                <td>
-test mode
-<ul>
-
-                            <li><code>0</code>- real bitcoin transaction</li>
-
-
-                        <li><code>1</code>- test mode transaction</li></ul>
-</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>updated_at</code></td>
-                                <td>last date that transaction be comfirmed</td>
-                                <td><span class="badge">string</span></td>
-                            </tr></tbody>
-                        </table>
-                        <h3 id="api-4">Address History</h3>
-                        <p>GET: <code>http://localhost/api/addresses/{address}</code></p>
-                        <p>Returns address history. response including:</p>
-                        <table class="table table-bordered table-striped dyntable">
-                        <thead>
-                        <tr>
-                            <th colspan="2">Field</th>
-                            <th>Description</th>
-                            <th>Possible Values</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        	<tr>
-                            	<td><span class="badge badge-success">Required</span></td>
-                            	<td><code>address</code></td>
-                                <td>address id</td>
-                                <td><span class="badge">string</span></td>
+                            <tr>
+                              <td><code>status</code></td>
+                              <td>task status</td>
+                              <td><span class="badge">string</span></td>
                             </tr>
-
-
-
-                        </tbody>
-                        </table>
-                        <h5>Returned JSON values:</h5>
-                        <table class="table table-bordered table-striped dyntable">
-                        <thead>
-                        <tr>
-                            <th>Field</th>
-                            <th>Description</th>
-                            <th>Possible Values</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        	<tr>
-                            	<td><code>address</code></td>
-                                <td>Address</td>
-                                <td><span class="badge">string</span></td>
+                            <tr>
+                              <td><code>created_at</code></td>
+                              <td>when task is created</td>
+                              <td><span class="badge">datetime</span></td>
                             </tr>
-                        	<tr>
-                            	<td><code>user_id</code></td>
-                                <td>User Id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr>
-                        	<tr>
-                            	<td><code>created_at</code></td>
-                                <td>request time</td>
-                                <td><span class="badge">datetime</span></td>
+                            <tr>
+                              <td><code>updated_at</code></td>
+                              <td>when task is updated</td>
+                              <td><span class="badge">datetime</span></td>
                             </tr>
                         </tbody>
                         </table>
                         <hr>
-                        <h2>Test Mode API</h2>
-<p>Test mode api, for test deposit, confirm transaction, and remove transaction</p>
-<p>Note: all params required only test mode transaction</p>
-                        <h3 id="api-5">Deposit</h3>
-<p>Deposit to user address</p><p></p>
-                        <p>POST: <code>http://localhost/api/transactions/deposit</code></p>
-
+                        <!-- END LIST TASK -->
+                        <!-- TASK DETAIL -->
+                        <h3 id="api-view-task">Task Detail</h3>
+                        <p>GET: <code>http://localhost/api/v1/tasks/{task_id}</code></p>
                         <table class="table table-bordered table-striped dyntable">
                         <thead>
                         <tr>
@@ -368,20 +157,15 @@ test mode
                         </thead>
                         <tbody>
                         	<tr>
-                            	<td><span class="badge badge-important">Required</span></td>
-                            	<td><code>amountBtc</code></td>
-                                <td>bitcoin value</td>
-                                <td><span class="badge">numeric</span></td>
-                            </tr>
-                        <tr>
-                            	<td><span class="badge badge-important">Required</span></td>
-                            	<td><code>address</code></td>
-                                <td>bitcoin address</td>
-                                <td><span class="badge">string</span></td>
-                            </tr></tbody>
+                            <td><span class="badge badge-important">Required</span></td>
+                            <td><code>task_id</code></td>
+                            <td>Task identify key</td>
+                            <td><span class="badge">int</span></td>
+                          </tr>
+                          </tbody>
                         </table>
                         <h5>Returned JSON values:</h5>
-<table class="table table-bordered table-striped dyntable">
+                        <table class="table table-bordered table-striped dyntable">
                         <thead>
                         <tr>
                             <th>Field</th>
@@ -390,60 +174,54 @@ test mode
                         </tr>
                         </thead>
                         <tbody>
-                        	<tr>
-                            	<td><code>address</code></td>
-                                <td>user's address</td>
+                          <tr>
+                            	<td><code>subject</code></td>
+                                <td>task subject</td>
                                 <td><span class="badge badge-info">string</span></td>
                             </tr>
                         	<tr>
-                            	<td><code>confirmation</code></td>
-                                <td>bitcoin confirmation</td>
-                                <td><span class="badge">int</span></td>
+                            	<td><code>content</code></td>
+                              <td>task content of detail</td>
+                              <td><span class="badge">string</span></td>
                             </tr>
-                        <tr>
-                            	<td><code>date</code></td>
-                                <td>confirmation date</td>
-                                <td><span class="badge">datetime</span></td>
-                            </tr><tr>
-                            	<td><code>tx_hash</code></td>
-                                <td>transaction id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>value</code></td>
-                                <td>bitcoin value</td>
-                                <td><span class="badge">numeric</span></td>
-                            </tr><tr>
-                            	<td><code>usd</code></td>
-                                <td>value in usd</td>
-                                <td><span class="badge">numeric</span></td>
-                            </tr><tr>
-                            	<td><code>user_id</code></td>
-                                <td>account id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>is_test</code></td>
-                                <td>
-test mode
-<ul>
-
-                            <li><code>0</code>- real bitcoin transaction</li>
-
-
-                        <li><code>1</code>- test mode transaction</li></ul>
-</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>updated_at</code></td>
-                                <td>last date that transaction be comfirmed</td>
-                                <td><span class="badge">string</span></td>
-                            </tr></tbody>
+                            <tr>
+                              <td><code>status</code></td>
+                              <td>task status</td>
+                              <td><span class="badge">string</span></td>
+                            </tr>
+                            <tr>
+                              <td><code>created_at</code></td>
+                              <td>when task is created</td>
+                              <td><span class="badge">datetime</span></td>
+                            </tr>
+                            <tr>
+                              <td><code>updated_at</code></td>
+                              <td>when task is updated</td>
+                              <td><span class="badge">datetime</span></td>
+                            </tr>
+                        </tbody>
                         </table>
-
-
-                        <h3 id="api-6">Confirm Transaction</h3>
-                        <p><em>Confirm test mode transaction</em></p>
-                        <p>POST: <code>http://localhost/api/transactions/confirm</code></p>
-
+                        <hr>
+                        <!-- END TASK DETAIL -->
+                        <!-- CREATE TASK -->
+                        <h3 id="api-create-task">Create Task</h3>
+                        <p>POST: <code>http://localhost/api/v1/tasks</code></p>
+                        <h5>Header</h5>
+                        <table class="table table-bordered table-striped dyntable">
+                        <thead>
+                        <tr>
+                            <th colspan="1">Header</th>
+                            <th colspan="2">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Content-Type</td>
+                            <td><code>application/x-www-form-urlencoded</code></td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <h5>Form Params</h5>
                         <table class="table table-bordered table-striped dyntable">
                         <thead>
                         <tr>
@@ -454,23 +232,27 @@ test mode
                         </thead>
                         <tbody>
                         	<tr>
-                            	<td><span class="badge badge-important">Required</span></td>
-                            	<td><code>tx_hash</code></td>
-                                <td>bitcoin transaction</td>
-                                <td><span class="badge">string</span></td>
-                            </tr>
-                        	<tr>
-                            	<td><span class="badge badge-important">Required</span></td>
-                            	<td><code>confirm</code></td>
-                                <td>number of confirmation</td>
-                                <td><span class="badge">int</span></td>
-                            </tr>
-
-                        </tbody>
+                            <td><span class="badge badge-important">Required</span></td>
+                            <td><code>subject</code></td>
+                            <td>Task subject</td>
+                            <td><span class="badge">string</span></td>
+                          </tr>
+                          <tr>
+                            <td><span class="badge badge-important">Required</span></td>
+                            <td><code>content</code></td>
+                            <td>Task content</td>
+                            <td><span class="badge">string</span></td>
+                          </tr>
+                          <tr>
+                            <td><span class="badge badge-important">Required</span></td>
+                            <td><code>status</code></td>
+                            <td>task status, pending or done</td>
+                            <td><span class="badge">string</span></td>
+                          </tr>
+                          </tbody>
                         </table>
-
                         <h5>Returned JSON values:</h5>
-<table class="table table-bordered table-striped dyntable">
+                        <table class="table table-bordered table-striped dyntable">
                         <thead>
                         <tr>
                             <th>Field</th>
@@ -479,65 +261,55 @@ test mode
                         </tr>
                         </thead>
                         <tbody>
-                        	<tr>
-                            	<td><code>address</code></td>
-                                <td>user's address</td>
+                          <tr>
+                            	<td><code>subject</code></td>
+                                <td>task subject</td>
                                 <td><span class="badge badge-info">string</span></td>
                             </tr>
                         	<tr>
-                            	<td><code>confirmation</code></td>
-                                <td>bitcoin confirmation</td>
-                                <td><span class="badge">int</span></td>
+                            	<td><code>content</code></td>
+                              <td>task content of detail</td>
+                              <td><span class="badge">string</span></td>
                             </tr>
-                        <tr>
-                            	<td><code>date</code></td>
-                                <td>confirmation date</td>
-                                <td><span class="badge">datetime</span></td>
-                            </tr><tr>
-                            	<td><code>tx_hash</code></td>
-                                <td>transaction id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>value</code></td>
-                                <td>bitcoin value</td>
-                                <td><span class="badge">numeric</span></td>
-                            </tr><tr>
-                            	<td><code>usd</code></td>
-                                <td>value in usd</td>
-                                <td><span class="badge">numeric</span></td>
-                            </tr><tr>
-                            	<td><code>user_id</code></td>
-                                <td>account id</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>is_test</code></td>
-                                <td>
-test mode
-<ul>
-
-                            <li><code>0</code>- real bitcoin transaction</li>
-
-
-                        <li><code>1</code>- test mode transaction</li></ul>
-</td>
-                                <td><span class="badge">string</span></td>
-                            </tr><tr>
-                            	<td><code>updated_at</code></td>
-                                <td>last date that transaction be comfirmed</td>
-                                <td><span class="badge">string</span></td>
-                            </tr></tbody>
+                            <tr>
+                              <td><code>status</code></td>
+                              <td>task status</td>
+                              <td><span class="badge">string</span></td>
+                            </tr>
+                            <tr>
+                              <td><code>created_at</code></td>
+                              <td>when task is created</td>
+                              <td><span class="badge">datetime</span></td>
+                            </tr>
+                            <tr>
+                              <td><code>updated_at</code></td>
+                              <td>when task is updated</td>
+                              <td><span class="badge">datetime</span></td>
+                            </tr>
+                        </tbody>
                         </table>
-
-
-
-
-                        <h3 id="api-7">Remove</h3>
-                        <p>DELETE: <code>http://localhost/api/transactions/{tx_hash}</code></p>
-
-
-                        <p>Remove testmode transaction</p>
-                        <h5>Returned JSON values (for each option):</h5>
-<table class="table table-bordered table-striped dyntable">
+                        <!-- END CREATE TASK -->
+                        <!-- EDIT TASK -->
+                        <hr>
+                        <h3 id="api-update-task">Edit Task</h3>
+                        <p>PUT: <code>http://localhost/api/v1/tasks/{task_id}</code></p>
+                        <h5>Header</h5>
+                        <table class="table table-bordered table-striped dyntable">
+                        <thead>
+                        <tr>
+                            <th colspan="1">Header</th>
+                            <th colspan="2">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Content-Type</td>
+                            <td><code>application/x-www-form-urlencoded</code></td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <h5>URL Params</h5>
+                        <table class="table table-bordered table-striped dyntable">
                         <thead>
                         <tr>
                             <th colspan="2">Field</th>
@@ -546,14 +318,185 @@ test mode
                         </tr>
                         </thead>
                         <tbody>
-                        	<tr>
-                            	<td><span class="badge badge-important">Required</span></td>
-                            	<td><code>tx_hash</code></td>
-                                <td>bitcoin transaction</td>
-                                <td><span class="badge">string</span></td>
+                          <tr>
+                            <td><span class="badge badge-important">Required</span></td>
+                            <td><code>task_id</code></td>
+                            <td>Task identify key</td>
+                            <td><span class="badge">int</span></td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <h5>Form Params</h5>
+                        <table class="table table-bordered table-striped dyntable">
+                        <thead>
+                        <tr>
+                            <th colspan="2">Field</th>
+                            <th>Description</th>
+                            <th>Possible Values</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><span class="badge badge-important">Optional</span></td>
+                            <td><code>subject</code></td>
+                            <td>Task subject</td>
+                            <td><span class="badge">string</span></td>
+                          </tr>
+                          <tr>
+                            <td><span class="badge badge-important">Optional</span></td>
+                            <td><code>content</code></td>
+                            <td>Task content</td>
+                            <td><span class="badge">string</span></td>
+                          </tr>
+                          <tr>
+                            <td><span class="badge badge-important">Optional</span></td>
+                            <td><code>status</code></td>
+                            <td>task status, pending or done</td>
+                            <td><span class="badge">string</span></td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <h5>Returned JSON values:</h5>
+                        <table class="table table-bordered table-striped dyntable">
+                        <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Possible Values</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                              <td><code>subject</code></td>
+                                <td>task subject</td>
+                                <td><span class="badge badge-info">string</span></td>
+                            </tr>
+                          <tr>
+                              <td><code>content</code></td>
+                              <td>task content of detail</td>
+                              <td><span class="badge">string</span></td>
+                            </tr>
+                            <tr>
+                              <td><code>status</code></td>
+                              <td>task status</td>
+                              <td><span class="badge">string</span></td>
+                            </tr>
+                            <tr>
+                              <td><code>created_at</code></td>
+                              <td>when task is created</td>
+                              <td><span class="badge">datetime</span></td>
+                            </tr>
+                            <tr>
+                              <td><code>updated_at</code></td>
+                              <td>when task is updated</td>
+                              <td><span class="badge">datetime</span></td>
                             </tr>
                         </tbody>
                         </table>
+                        <!-- END EDIT TASK -->
+                        <!-- DELETE DETAIL -->
+                        <h3 id="api-delete-task">Delete Detail</h3>
+                        <p>DELETE: <code>http://localhost/api/v1/tasks/{task_id}</code></p>
+                        <table class="table table-bordered table-striped dyntable">
+                        <thead>
+                        <tr>
+                            <th colspan="2">Field</th>
+                            <th>Description</th>
+                            <th>Possible Values</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><span class="badge badge-important">Required</span></td>
+                            <td><code>task_id</code></td>
+                            <td>Task identify key</td>
+                            <td><span class="badge">int</span></td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <hr>
+                        <!-- END DELETE TASK -->
+                        <!-- SET TASK STATUS -->
+                        <hr>
+                        <h3 id="api-update-task-status">Set Task Status</h3>
+                        <p>PUT: <code>http://localhost/api/v1/tasks/{task_id}/statuses/{status}</code></p>
+                        <h5>Header</h5>
+                        <table class="table table-bordered table-striped dyntable">
+                        <thead>
+                        <tr>
+                            <th colspan="1">Header</th>
+                            <th colspan="2">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Content-Type</td>
+                            <td><code>application/x-www-form-urlencoded</code></td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <h5>URL Params</h5>
+                        <table class="table table-bordered table-striped dyntable">
+                        <thead>
+                        <tr>
+                            <th colspan="2">Field</th>
+                            <th>Description</th>
+                            <th>PossibEditle Values</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><span class="badge badge-important">Required</span></td>
+                            <td><code>task_id</code></td>
+                            <td>Task identify key</td>
+                            <td><span class="badge">int</span></td>
+                          </tr>
+                          <tr>
+                            <td><span class="badge badge-important">Required</span></td>
+                            <td><code>status</code></td>
+                            <td>pending or done</td>
+                            <td><span class="badge">string</span></td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <h5>Returned JSON values:</h5>
+                        <table class="table table-bordered table-striped dyntable">
+                        <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Possible Values</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                              <td><code>subject</code></td>
+                                <td>task subject</td>
+                                <td><span class="badge badge-info">string</span></td>
+                            </tr>
+                          <tr>
+                              <td><code>content</code></td>
+                              <td>task content of detail</td>
+                              <td><span class="badge">string</span></td>
+                            </tr>
+                            <tr>
+                              <td><code>status</code></td>
+                              <td>task status</td>
+                              <td><span class="badge">string</span></td>
+                            </tr>
+                            <tr>
+                              <td><code>created_at</code></td>
+                              <td>when task is created</td>
+                              <td><span class="badge">datetime</span></td>
+                            </tr>
+                            <tr>
+                              <td><code>updated_at</code></td>
+                              <td>when task is updated</td>
+                              <td><span class="badge">datetime</span></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <!-- END SET TASK STATUS -->
                     </div>
                 </div>
             </div>
