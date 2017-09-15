@@ -115,12 +115,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        	<tr>
+                            <tr>
+                              <td><code>id</code></td>
+                                <td>task id</td>
+                                <td><span class="badge badge-info">int</span></td>
+                            </tr>
+                        	  <tr>
                             	<td><code>subject</code></td>
                                 <td>task subject</td>
                                 <td><span class="badge badge-info">string</span></td>
                             </tr>
-                        	<tr>
+                        	  <tr>
                             	<td><code>content</code></td>
                               <td>task content of detail</td>
                               <td><span class="badge">string</span></td>
@@ -174,6 +179,11 @@
                         </tr>
                         </thead>
                         <tbody>
+                          <tr>
+                            <td><code>id</code></td>
+                              <td>task id</td>
+                              <td><span class="badge badge-info">int</span></td>
+                          </tr>
                           <tr>
                             	<td><code>subject</code></td>
                                 <td>task subject</td>
@@ -261,6 +271,11 @@
                         </tr>
                         </thead>
                         <tbody>
+                          <tr>
+                            <td><code>id</code></td>
+                              <td>task id</td>
+                              <td><span class="badge badge-info">int</span></td>
+                          </tr>
                           <tr>
                             	<td><code>subject</code></td>
                                 <td>task subject</td>
@@ -367,6 +382,11 @@
                         </thead>
                         <tbody>
                           <tr>
+                            <td><code>id</code></td>
+                              <td>task id</td>
+                              <td><span class="badge badge-info">int</span></td>
+                          </tr>
+                          <tr>
                               <td><code>subject</code></td>
                                 <td>task subject</td>
                                 <td><span class="badge badge-info">string</span></td>
@@ -469,6 +489,11 @@
                         </tr>
                         </thead>
                         <tbody>
+                          <tr>
+                            <td><code>id</code></td>
+                              <td>task id</td>
+                              <td><span class="badge badge-info">int</span></td>
+                          </tr>
                           <tr>
                               <td><code>subject</code></td>
                                 <td>task subject</td>
