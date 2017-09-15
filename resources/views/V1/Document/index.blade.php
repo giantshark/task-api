@@ -73,7 +73,7 @@
                         </table>
                         <!-- LIST TASK -->
                         <h3 id="api-list-tasks">List tasks</h3>
-                        <p>GET: <code>http://localhost/api/v1/tasks?limit=limit&offset=offset&column={column1,column2}</code></p>
+                        <p>GET: <code>http://localhost/api/v1/tasks?limit=limit&offset=offset&columns={column1,column2}</code></p>
 
                         <table class="table table-bordered table-striped dyntable">
                         <thead>
@@ -98,7 +98,7 @@
                           </tr>
                           <tr>
                               <td><span class="badge badge-important">Optional</span></td>
-                              <td><code>column</code></td>
+                              <td><code>columns</code></td>
                               <td>column of resources, {id, subject, content}</td>
                               <td><span class="badge">string</span></td>
                           </tr>
