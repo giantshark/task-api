@@ -80,7 +80,7 @@ class TaskController extends Controller
       if (!$validator->passes()) return $this->respond($validator->errors()->all(), 400, []);
       $task = Task::where('id', $id)->first();
       if ($task) {
-        return $this->respond([], 200, $task);
+        return $this->respond([], 200, [$task]);
       }
       return $this->respond(['task not found'], 400, []);
   }
